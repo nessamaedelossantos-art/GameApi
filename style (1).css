@@ -1,0 +1,192 @@
+/* Universal reset - removes default margins/padding and sets box model */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box; /* Includes padding/border in element's total width/height */
+  font-family: "Audiowide", sans-serif; /* Sets default font for all elements */
+}
+
+/* Main page styling */
+body {
+  height: 100vh; /* Full viewport height */
+  display: flex;
+  padding: 15px;
+  align-items: center; /* Vertical centering */
+  justify-content: center; /* Horizontal centering */
+  background-image: url('image/Polynesia\ Paradise\ -\ Sunset\ on\ the\ Islands.jfif');
+  background-repeat: no-repeat;
+  background-size: cover; /* Covers entire element with background */
+  background-position: center;
+}
+
+/* Main game container */
+.container {
+  display: flex;
+  flex-direction: column;
+  max-width: 535px; /* Maximum width constraint */
+  width: 100%; /* Full width up to max-width */
+  padding: 2rem 5rem;
+  border-radius: 14px;
+  background: rgba(255, 255, 255, 0.71); /* Semi-transparent white background */
+  box-shadow: 0 5px 10px rgba(255, 0, 0, 0.1); /* Red-tinted shadow */
+}
+
+/* Container for result images (player vs computer) */
+.result_images {
+  display: flex;
+  gap: 7rem; /* Space between player and computer choices */
+  justify-content: center;
+}
+
+/* Animation for player's choice during gameplay */
+.container.start .user_result {
+  transform-origin: center;
+  animation: userShake 0.7s ease infinite; /* Continuous shaking animation */
+}
+
+/* Keyframes for player's shake animation */
+@keyframes userShake {
+  50% {
+    transform: rotate(5deg); /* Rotate 5 degrees at animation midpoint */
+  }
+}
+
+/* Animation for computer's choice during gameplay */
+.container.start .bot_result {
+  transform-origin: center;
+  animation: botShake 0.7s ease infinite;
+}
+
+/* Keyframes for computer's shake animation */
+@keyframes botShake {
+  50% {
+    transform: rotate(-5deg); /* Rotate -5 degrees at animation midpoint */
+  }
+}
+
+/* Styling for choice images */
+.result_images img {
+  width: 120px; /* Uniform image size */
+}
+
+/* Player's choice image rotation */
+.user_result img {
+  transform: rotate(90deg); /* Rotate to face right */
+}
+
+/* Computer's choice image rotation */
+.bot_result img {
+  transform: rotate(-90deg); /* Rotate to face left */
+}
+
+/* Result text styling */
+.result {
+  text-align: center;
+  font-size: 2rem;
+  color: #7d2ae8; /* Purple accent color */
+  margin: 1.5rem 0;
+}
+
+/* Option selection images */
+.option_image img {
+  width: 50px; /* Smaller size for selection options */
+}
+
+/* Container for choice options */
+.option_images {
+  display: flex;
+  width: 100%;
+  align-items: center;
+  margin-top: 2.5rem;
+  justify-content: space-evenly; /* Even spacing between options */
+}
+
+/* Disable clicks during animation */
+.container.start .option_images {
+  pointer-events: none; /* Prevent interaction during gameplay */
+}
+
+/* Individual choice option styling */
+.option_image {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  opacity: 0.5; /* Semi-transparent inactive state */
+  cursor: pointer;
+  transition: opacity 0.3s ease; /* Smooth opacity transition */
+}
+
+/* Hover effect for options */
+.option_image:hover {
+  opacity: 1; /* Full opacity on hover */
+}
+
+/* Active state for selected option */
+.option_image.active {
+  opacity: 1;
+}
+
+/* Prevent image dragging/selection */
+.option_image img {
+  pointer-events: none; /* Prevent image from blocking clicks */
+}
+
+/* Option label styling */
+.option_image p {
+  color: #7d2ae8; /* Matching accent color */
+  font-size: 1.235rem;
+  margin-top: 1rem;
+  pointer-events: none; /* Prevent text from blocking clicks */
+}
+
+/* Scoreboard Styles */
+.scoreboard {
+  display: flex;
+  justify-content: center;
+  gap: 2rem;
+  margin-top: 2rem;
+  padding: 1rem 2rem;
+  background: #f5f5f5;
+  border-radius: 12px;
+  font-size: 1.2rem;
+  font-weight: bold;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+}
+
+.scoreboard span {
+  color: #333;
+}
+
+.scoreboard #user-score {
+  color: #2196f3;
+}
+
+.scoreboard #bot-score {
+  color: #e91e63;
+}
+
+.scoreboard #round {
+  color: #4caf50;
+}
+
+/* Responsive design for tablets/small screens */
+@media (max-width: 768px) {
+  .container {
+    padding: 2rem; /* Reduce horizontal padding */
+  }
+
+  .result_images img {
+    width: 80px; /* Smaller result images */
+  }
+}
+
+/* Mobile-specific adjustments */
+@media (max-width: 500px) {
+  .option_images {
+    justify-content: space-between; /* Different spacing for small screens */
+  }
+
+  .option_image img {
+    width: 40px; /* Even smaller option images */
+  }
+}

@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Jack en Poy Game</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <section class="container">
+
+    <!-- Registration -->
+    <div id="register-section" style="text-align:center; margin-bottom:2rem;">
+      <input type="text" id="username-input" placeholder="Enter username" style="padding:0.5rem; font-size:1rem;">
+      <button id="register-btn" style="padding:0.5rem 1.2rem; font-size:1rem; background:#7d2ae8; color:#fff; border:none; border-radius:6px; cursor:pointer;">Register</button>
+    </div>
+
+    <!-- Results -->
+    <div class="result_field">
+      <div class="result_images">
+        <span class="user_result"><img src="image/rock.png" alt="User"></span>
+        <span class="bot_result"><img src="image/rock.png" alt="Bot"></span>
+      </div>
+      <div class="result">Let's Play!</div>
+    </div>
+
+    <!-- Choices -->
+    <div class="option_images">
+      <span class="option_image"><img src="image/rock.png" alt="Rock"><p>Rock</p></span>
+      <span class="option_image"><img src="image/paper.png" alt="Paper"><p>Paper</p></span>
+      <span class="option_image"><img src="image/scissors.png" alt="Scissors"><p>Scissors</p></span>
+    </div>
+
+    <!-- Scoreboard -->
+    <div class="scoreboard">
+      <span>User Score: <span id="user-score">0</span></span>
+      <span>BOT Score: <span id="bot-score">0</span></span>
+      <span>Round: <span id="round">0</span>/5</span>
+    </div>
+
+    <!-- Restart -->
+    <button id="restart-btn" style="display:none; margin:2rem auto 0; padding:0.7rem 2rem; font-size:1.1rem; background:#7d2ae8; color:#fff; border:none; border-radius:8px; cursor:pointer;">Restart Game</button>
+  </section>
+
+  <script src="script.js" defer></script>
+</body>
+</html>
